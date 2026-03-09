@@ -4,133 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤسسة ضيف للتوريدات الكهربائية</title>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #003366;
+            --accent: #25d366;
+            --silver: #e0e0e0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Cairo', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f8f9fa;
             color: #333;
         }
 
+        /* رأس الصفحة */
         header {
-            background-color: #003366;
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.9)), url('https://images.unsplash.com/photo-1558211583-d26f610c1eb1?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 30px 10px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 5px solid #ffcc00;
+            border-bottom: 6px solid var(--accent);
         }
 
+        header h1 { font-weight: 900; font-size: 2.8rem; margin: 0; }
+        header p { font-size: 1.3rem; margin-top: 10px; opacity: 0.9; }
+
+        /* حاوية المنتجات */
         .container {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        h2 {
-            color: #003366;
-            border-bottom: 2px solid #003366;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .product-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .product-card {
+        .card {
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 280px;
-            transition: transform 0.3s;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: 0.4s;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
+        .card:hover { transform: translateY(-10px); }
 
-        .product-card h3 {
-            color: #e67e22;
-            margin-top: 0;
-        }
+        .card h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 15px; }
 
-        .contact-btn {
+        /* زر الواتساب */
+        .btn-whatsapp {
             display: inline-block;
-            background-color: #25d366;
+            background-color: var(--accent);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 25px;
-            margin-top: 15px;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
         }
+
+        .btn-whatsapp:hover { background-color: #128c7e; transform: scale(1.05); }
+
+        /* قسم أرقام التواصل */
+        .contact-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-box h2 { margin-bottom: 25px; }
+
+        .phone-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+
+        .phone-list li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .phone-list a { color: var(--accent); text-decoration: none; font-weight: bold; }
 
         footer {
-            background: #222;
-            color: white;
+            background: #111;
+            color: #777;
             padding: 20px;
-            margin-top: 50px;
             text-align: center;
+            font-size: 0.9rem;
         }
 
-        .badge {
-            background: #ffcc00;
-            color: #000;
-            padding: 2px 8px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>مؤسسة ضيف للتوريدات الكهربائية ⚡</h1>
-        <p>الوكيل المعتمد لأجود الخامات الكهربائية | العاشر من رمضان</p>
-    </header>
+<header>
+    <h1>مؤسسة ضيف للتوريدات</h1>
+    <p>أكبر تشكيلة كابلات ومفاتيح كهربائية في العاشر من رمضان</p>
+</header>
 
-    <div class="container">
-        <section>
-            <h2>قائمة المنتجات المعتمدة</h2>
-            <div class="product-grid">
-                
-                <div class="product-card">
-                    <span class="badge">الأكثر طلباً</span>
-                    <h3>كابلات السويدي</h3>
-                    <p>جميع المقاسات والأنواع (سعر المصنع) لضمان أعلى مستويات الأمان.</p>
-                    <a href="#" class="contact-btn">اطلب الآن</a>
-                </div>
-
-                <div class="product-card">
-                    <h3>شنايدر إلكتريك</h3>
-                    <p>قواطع ومفاتيح ولوحات تحكم Schneider الأصلية بضمان المؤسسة.</p>
-                    <a href="#" class="contact-btn">اطلب الآن</a>
-                </div>
-
-                <div class="product-card">
-                    <h3>إيجي لايت</h3>
-                    <p>أحدث نظم الإضاءة الموفرة (LED) بتصاميم تناسب جميع الأذواق.</p>
-                    <a href="#" class="contact-btn">اطلب الآن</a>
-                </div>
-
-            </div>
-        </section>
+<div class="container">
+    <div class="card">
+        <h3>كابلات السويدي</h3>
+        <p>نحاس أصلي معتمد لجميع المشروعات الهندسية والمقاولات.</p>
+        <a href="https://wa.me/201033318799" class="btn-whatsapp">اطلب عبر واتساب</a>
     </div>
 
-    <footer>
-        <p>العنوان: العاشر من رمضان - مؤسسة ضيف</p>
-        <p>برمجة وتطوير: <b>أحمد حسام</b></p>
-        <p>&copy; 2026 جميع الحقوق محفوظة</p>
-    </footer>
+    <div class="card">
+        <h3>شنايدر إلكتريك</h3>
+        <p>قواطع أوتوماتيكية ولوحات توزيع بأعلى معايير الأمان العالمية.</p>
+        <a href="https://wa.me/201005322588" class="btn-whatsapp">استفسر عن السعر</a>
+    </div>
+
+    <div class="card">
+        <h3>إيجي لايت & ليد</h3>
+        <p>أنظمة إضاءة حديثة وموفرة للطاقة بضمان حقيقي.</p>
+        <a href="https://wa.me/201061829428" class="btn-whatsapp">تواصل معنا</a>
+    </div>
+</div>
+
+<div class="contact-box">
+    <h2>أرقام التواصل والاستعلام</h2>
+    <ul class="phone-list">
+        <li>: <a href="tel:01033318799">01033318799</a></li>
+        <li>: <a href="tel:01005322588">01005322588</a></li>
+        <li>: <a href="tel:01061829428">01061829428</a></li>
+    </ul>
+    <p style="margin-top: 20px; opacity: 0.8;">📍 العاشر من رمضان - خدمة توصيل لجميع المناطق</p>
+</div>
+
+<footer>
+    <p>حقوق النشر © 2026 - مؤسسة ضيف للتوريدات الكهربائية</p>
+    <p>تم التصميم بواسطة المبرمج: أحمد حسام</p>
+</footer>
 
 </body>
-      </html>
-      
+</html>
+    
